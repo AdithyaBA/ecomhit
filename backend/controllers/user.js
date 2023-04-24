@@ -79,3 +79,17 @@ exports.pushOrderInPurchaseList = (req, res, next) => {
     }
   );
 };
+
+exports.getAllUsers = (req, res) => {
+  User.find((err, user) => {
+    if(err){
+      reverse.status(400).json({
+        error: "Unable to fetch all users"
+      })
+    }
+    res.status(200).json({
+    success: true,
+    user
+  })
+  })
+}
